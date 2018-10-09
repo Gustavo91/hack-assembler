@@ -8,6 +8,15 @@
 
 import Foundation
 
-let manager = IOManager()
-manager.readArgument()
+do {
+    let manager = try IOManager()
+    try manager.makeBinaryFile()
+} catch IOError.wrongNumberOfArguments {
+    print("The numbers of required arguments is 2")
+    print("Usage: Assembler file.asm")
+} catch IOError.wrongFileExtension {
+    print("The file extension should be .asm")
+} catch IOError.fileCanNotBeRead {
+    print("The file couldn't be read")
+}
 

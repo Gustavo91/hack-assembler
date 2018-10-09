@@ -11,23 +11,25 @@ import XCTest
 class CodeTests: XCTestCase {
     
     let jumpConvertionTable = [
-        "JGT": "001",
-        "JEQ": "010",
-        "JGE": "011",
-        "JLT": "100",
-        "JNE": "101",
-        "JLE": "110",
-        "JMP": "111",
+        "NULL": "000",
+        "JGT" : "001",
+        "JEQ" : "010",
+        "JGE" : "011",
+        "JLT" : "100",
+        "JNE" : "101",
+        "JLE" : "110",
+        "JMP" : "111",
     ]
     
     let destConvertionTable = [
-        "A": "100",
-        "M": "001",
-        "D": "010",
-        "AM": "101",
-        "AD": "110",
-        "MD": "011",
-        "AMD": "111",
+        "NULL": "000",
+        "A"   : "100",
+        "M"   : "001",
+        "D"   : "010",
+        "AM"  : "101",
+        "AD"  : "110",
+        "MD"  : "011",
+        "AMD" : "111",
     ]
     
     let compConvertionTable = [
@@ -68,7 +70,7 @@ class CodeTests: XCTestCase {
         "M|D" : "1010101",
     ]
     
-    func test_jump_returnsRightBinaryCode() {
+    func test_getBinaryOfjumpSymbol_returnsRightBinaryCode() {
         jumpConvertionTable.forEach { (symbol, binary) in
             XCTAssertEqual(Code.getBinaryOf(jumpSymbol: symbol), binary)
         }
@@ -76,7 +78,7 @@ class CodeTests: XCTestCase {
         XCTAssertEqual(Code.getBinaryOf(jumpSymbol: "Gustavo"), "000")
     }
     
-    func test_dest_returnsRightBinaryCode() {
+    func test_getBinaryOfdestSymbol_returnsRightBinaryCode() {
         destConvertionTable.forEach { (symbol, binary) in
             XCTAssertEqual(Code.getBinaryOf(destSymbol: symbol), binary)
         }
@@ -84,7 +86,7 @@ class CodeTests: XCTestCase {
         XCTAssertEqual(Code.getBinaryOf(destSymbol: "Gustavo"), "000")
     }
     
-    func test_comp_returnsRightBinaryCode() {
+    func test_getBinaryOfcompSymbol_returnsRightBinaryCode() {
         compConvertionTable.forEach { (symbol, binary) in
             XCTAssertEqual(Code.getBinaryOf(compSymbol: symbol), binary)
         }
@@ -92,4 +94,15 @@ class CodeTests: XCTestCase {
         XCTAssertNil(Code.getBinaryOf(compSymbol: "Gustavo"))
     }
     
+    func test_getBinaryOfSymbol_returnsRightBinaryCode() {
+        stride(from: 0, to: 32768, by: 5000).forEach {
+            let binary = String($0, radix: 2, uppercase: false)
+            let paddedBinary = Code.pad(string: binary, toSize: 16, padChar: "0")
+            XCTAssertEqual(Code.getBinaryOf(symbol: String($0)), paddedBinary)
+        }
+        XCTAssertNil(Code.getBinaryOf(compSymbol: nil))
+        XCTAssertNil(Code.getBinaryOf(compSymbol: "Gustavo"))
+        XCTAssertNil(Code.getBinaryOf(compSymbol: "32768"))
+    }
+        
 }

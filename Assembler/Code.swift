@@ -10,6 +10,8 @@ import Foundation
 
 class Code {
     
+    private static let maxAddressLimit = 32768
+    
     static func getBinaryOf(jumpSymbol: String?) -> String {
         guard let symbol = jumpSymbol , let binary = jumpConvertionTable[symbol]  else {
             return "000"
@@ -31,26 +33,47 @@ class Code {
         return binary
     }
     
+    static func getBinaryOf(symbol: String?) -> String? {
+        guard let symbol = symbol, let number = Int(symbol),
+            number < maxAddressLimit else {
+                return nil
+        }
+        let binary = String(number, radix: 2, uppercase: false)
+        return pad(string: binary, toSize: 16, padChar: "0")
+    }
+    
+    static func pad(string: String, toSize: Int, padChar: String) -> String {
+        var padded = string
+        for _ in 0..<(toSize - string.count) {
+            padded = padChar + padded
+        }
+        return padded
+    }
+    
     // MARK: Private
     
+
+    
     static private let jumpConvertionTable = [
-        "JGT": "001",
-        "JEQ": "010",
-        "JGE": "011",
-        "JLT": "100",
-        "JNE": "101",
-        "JLE": "110",
-        "JMP": "111",
+        "NULL": "000",
+        "JGT" : "001",
+        "JEQ" : "010",
+        "JGE" : "011",
+        "JLT" : "100",
+        "JNE" : "101",
+        "JLE" : "110",
+        "JMP" : "111",
     ]
     
     static private let destConvertionTable = [
-        "A": "100",
-        "M": "001",
-        "D": "010",
-        "AM": "101",
-        "AD": "110",
-        "MD": "011",
-        "AMD": "111",
+        "NULL": "000",
+        "A"   : "100",
+        "M"   : "001",
+        "D"   : "010",
+        "AM"  : "101",
+        "AD"  : "110",
+        "MD"  : "011",
+        "AMD" : "111",
     ]
     
     static private let compConvertionTable = [
