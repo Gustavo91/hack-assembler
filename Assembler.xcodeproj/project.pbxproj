@@ -7,7 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		19251A3721629FE700098BCF /* add-binary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19251A3621629FE700098BCF /* add-binary.txt */; };
+		19251A382162A98200098BCF /* add-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 199DC48C21629EDE00C679F2 /* add-assembly.txt */; };
+		19310A182171319200D24D01 /* commented-max-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19310A172171319200D24D01 /* commented-max-assembly.txt */; };
 		193DC27E215BFBA200A8E445 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DC27D215BFBA200A8E445 /* main.swift */; };
+		1948A2C2215F8277007AEAB2 /* CommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948A2C1215F8277007AEAB2 /* CommandTests.swift */; };
+		19561A9C215C15D600D19CA9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19561A9B215C15D600D19CA9 /* Parser.swift */; };
+		19561AA4215C178E00D19CA9 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19561AA3215C178E00D19CA9 /* ParserTests.swift */; };
+		197B866B215C5B0B0046BC3B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19561A9B215C15D600D19CA9 /* Parser.swift */; };
+		197B8674215EDE9C0046BC3B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8673215EDE9C0046BC3B /* Command.swift */; };
+		197B8675215EDF160046BC3B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8673215EDE9C0046BC3B /* Command.swift */; };
+		19B3D9F9215FA1FF0021665E /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */; };
+		19B3D9FB215FA21E0021665E /* CodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FA215FA21E0021665E /* CodeTests.swift */; };
+		19B3D9FC215FF2880021665E /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */; };
+		19B3D9FE216005F60021665E /* IOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FD216005F60021665E /* IOManager.swift */; };
+		19B3DA01216006510021665E /* IOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FD216005F60021665E /* IOManager.swift */; };
+		19B6757E216D40BA00F72A0A /* max-binary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19B6757C216D40BA00F72A0A /* max-binary.txt */; };
+		19B6757F216D40BA00F72A0A /* max-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19B6757D216D40BA00F72A0A /* max-assembly.txt */; };
+		19B67581216E93F500F72A0A /* String+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B67580216E93F500F72A0A /* String+Split.swift */; };
+		19B67582216E93F500F72A0A /* String+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B67580216E93F500F72A0A /* String+Split.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,12 +41,34 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		193DC27A215BFBA200A8E445 /* Assembler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Assembler; sourceTree = BUILT_PRODUCTS_DIR; };
+		19251A3621629FE700098BCF /* add-binary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "add-binary.txt"; sourceTree = "<group>"; };
+		19310A172171319200D24D01 /* commented-max-assembly.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "commented-max-assembly.txt"; sourceTree = "<group>"; };
+		193DC27A215BFBA200A8E445 /* assembler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = assembler; sourceTree = BUILT_PRODUCTS_DIR; };
 		193DC27D215BFBA200A8E445 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1948A2C1215F8277007AEAB2 /* CommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTests.swift; sourceTree = "<group>"; };
+		19561A9B215C15D600D19CA9 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		19561AA1215C178E00D19CA9 /* AssemblerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssemblerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		19561AA3215C178E00D19CA9 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
+		19561AA5215C178E00D19CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		197B8673215EDE9C0046BC3B /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		199DC48C21629EDE00C679F2 /* add-assembly.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "add-assembly.txt"; sourceTree = "<group>"; };
+		19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
+		19B3D9FA215FA21E0021665E /* CodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTests.swift; sourceTree = "<group>"; };
+		19B3D9FD216005F60021665E /* IOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOManager.swift; sourceTree = "<group>"; };
+		19B6757C216D40BA00F72A0A /* max-binary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "max-binary.txt"; sourceTree = "<group>"; };
+		19B6757D216D40BA00F72A0A /* max-assembly.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "max-assembly.txt"; sourceTree = "<group>"; };
+		19B67580216E93F500F72A0A /* String+Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Split.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		193DC277215BFBA200A8E445 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19561A9E215C178E00D19CA9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				193DC27C215BFBA200A8E445 /* Assembler */,
+				19561AA2215C178E00D19CA9 /* AssemblerTests */,
 				193DC27B215BFBA200A8E445 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,7 +90,8 @@
 		193DC27B215BFBA200A8E445 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				193DC27A215BFBA200A8E445 /* Assembler */,
+				193DC27A215BFBA200A8E445 /* assembler */,
+				19561AA1215C178E00D19CA9 /* AssemblerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,17 +99,38 @@
 		193DC27C215BFBA200A8E445 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
+				19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */,
+				197B8673215EDE9C0046BC3B /* Command.swift */,
+				19B3D9FD216005F60021665E /* IOManager.swift */,
 				193DC27D215BFBA200A8E445 /* main.swift */,
+				19561A9B215C15D600D19CA9 /* Parser.swift */,
+				19B67580216E93F500F72A0A /* String+Split.swift */,
 			);
 			path = Assembler;
+			sourceTree = "<group>";
+		};
+		19561AA2215C178E00D19CA9 /* AssemblerTests */ = {
+			isa = PBXGroup;
+			children = (
+				19B6757D216D40BA00F72A0A /* max-assembly.txt */,
+				19B6757C216D40BA00F72A0A /* max-binary.txt */,
+				19310A172171319200D24D01 /* commented-max-assembly.txt */,
+				19251A3621629FE700098BCF /* add-binary.txt */,
+				199DC48C21629EDE00C679F2 /* add-assembly.txt */,
+				19561AA3215C178E00D19CA9 /* ParserTests.swift */,
+				1948A2C1215F8277007AEAB2 /* CommandTests.swift */,
+				19B3D9FA215FA21E0021665E /* CodeTests.swift */,
+				19561AA5215C178E00D19CA9 /* Info.plist */,
+			);
+			path = AssemblerTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		193DC279215BFBA200A8E445 /* Assembler */ = {
+		193DC279215BFBA200A8E445 /* assembler */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 193DC281215BFBA200A8E445 /* Build configuration list for PBXNativeTarget "Assembler" */;
+			buildConfigurationList = 193DC281215BFBA200A8E445 /* Build configuration list for PBXNativeTarget "assembler" */;
 			buildPhases = (
 				193DC276215BFBA200A8E445 /* Sources */,
 				193DC277215BFBA200A8E445 /* Frameworks */,
@@ -77,10 +140,27 @@
 			);
 			dependencies = (
 			);
-			name = Assembler;
+			name = assembler;
 			productName = Assembler;
-			productReference = 193DC27A215BFBA200A8E445 /* Assembler */;
+			productReference = 193DC27A215BFBA200A8E445 /* assembler */;
 			productType = "com.apple.product-type.tool";
+		};
+		19561AA0215C178E00D19CA9 /* AssemblerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 19561AA6215C178E00D19CA9 /* Build configuration list for PBXNativeTarget "AssemblerTests" */;
+			buildPhases = (
+				19561A9D215C178E00D19CA9 /* Sources */,
+				19561A9E215C178E00D19CA9 /* Frameworks */,
+				19561A9F215C178E00D19CA9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AssemblerTests;
+			productName = AssemblerTests;
+			productReference = 19561AA1215C178E00D19CA9 /* AssemblerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -93,6 +173,9 @@
 				ORGANIZATIONNAME = me;
 				TargetAttributes = {
 					193DC279215BFBA200A8E445 = {
+						CreatedOnToolsVersion = 9.3.1;
+					};
+					19561AA0215C178E00D19CA9 = {
 						CreatedOnToolsVersion = 9.3.1;
 					};
 				};
@@ -109,17 +192,53 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				193DC279215BFBA200A8E445 /* Assembler */,
+				193DC279215BFBA200A8E445 /* assembler */,
+				19561AA0215C178E00D19CA9 /* AssemblerTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		19561A9F215C178E00D19CA9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19B6757E216D40BA00F72A0A /* max-binary.txt in Resources */,
+				19B6757F216D40BA00F72A0A /* max-assembly.txt in Resources */,
+				19310A182171319200D24D01 /* commented-max-assembly.txt in Resources */,
+				19251A382162A98200098BCF /* add-assembly.txt in Resources */,
+				19251A3721629FE700098BCF /* add-binary.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		193DC276215BFBA200A8E445 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B3D9F9215FA1FF0021665E /* CodeGenerator.swift in Sources */,
+				19B67581216E93F500F72A0A /* String+Split.swift in Sources */,
+				19561A9C215C15D600D19CA9 /* Parser.swift in Sources */,
 				193DC27E215BFBA200A8E445 /* main.swift in Sources */,
+				19B3D9FE216005F60021665E /* IOManager.swift in Sources */,
+				197B8674215EDE9C0046BC3B /* Command.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19561A9D215C178E00D19CA9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				197B866B215C5B0B0046BC3B /* Parser.swift in Sources */,
+				19561AA4215C178E00D19CA9 /* ParserTests.swift in Sources */,
+				197B8675215EDF160046BC3B /* Command.swift in Sources */,
+				19B67582216E93F500F72A0A /* String+Split.swift in Sources */,
+				1948A2C2215F8277007AEAB2 /* CommandTests.swift in Sources */,
+				19B3DA01216006510021665E /* IOManager.swift in Sources */,
+				19B3D9FC215FF2880021665E /* CodeGenerator.swift in Sources */,
+				19B3D9FB215FA21E0021665E /* CodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +362,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 			};
@@ -252,8 +372,47 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		19561AA7215C178E00D19CA9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AssemblerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.AssemblerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "";
+			};
+			name = Debug;
+		};
+		19561AA8215C178E00D19CA9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = AssemblerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.me.AssemblerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "";
 			};
 			name = Release;
 		};
@@ -269,11 +428,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		193DC281215BFBA200A8E445 /* Build configuration list for PBXNativeTarget "Assembler" */ = {
+		193DC281215BFBA200A8E445 /* Build configuration list for PBXNativeTarget "assembler" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				193DC282215BFBA200A8E445 /* Debug */,
 				193DC283215BFBA200A8E445 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		19561AA6215C178E00D19CA9 /* Build configuration list for PBXNativeTarget "AssemblerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				19561AA7215C178E00D19CA9 /* Debug */,
+				19561AA8215C178E00D19CA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
