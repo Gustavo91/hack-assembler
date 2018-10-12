@@ -10,6 +10,8 @@ import XCTest
 
 class CodeTests: XCTestCase {
     
+    var sut = CodeGenerator.shared
+    
     let jumpConvertionTable = [
         "NULL": "000",
         "JGT" : "001",
@@ -72,37 +74,41 @@ class CodeTests: XCTestCase {
     
     func test_getBinaryOfjumpSymbol_returnsRightBinaryCode() {
         jumpConvertionTable.forEach { (symbol, binary) in
-            XCTAssertEqual(Code.getBinaryOf(jumpSymbol: symbol), binary)
+            XCTAssertEqual(sut.getBinaryOf(jumpSymbol: symbol), binary)
         }
-        XCTAssertEqual(Code.getBinaryOf(jumpSymbol: nil), "000")
-        XCTAssertEqual(Code.getBinaryOf(jumpSymbol: "Gustavo"), "000")
+        XCTAssertEqual(sut.getBinaryOf(jumpSymbol: nil), "000")
+        XCTAssertEqual(sut.getBinaryOf(jumpSymbol: "Gustavo"), "000")
     }
     
     func test_getBinaryOfdestSymbol_returnsRightBinaryCode() {
         destConvertionTable.forEach { (symbol, binary) in
-            XCTAssertEqual(Code.getBinaryOf(destSymbol: symbol), binary)
+            XCTAssertEqual(sut.getBinaryOf(destSymbol: symbol), binary)
         }
-        XCTAssertEqual(Code.getBinaryOf(destSymbol: nil), "000")
-        XCTAssertEqual(Code.getBinaryOf(destSymbol: "Gustavo"), "000")
+        XCTAssertEqual(sut.getBinaryOf(destSymbol: nil), "000")
+        XCTAssertEqual(sut.getBinaryOf(destSymbol: "Gustavo"), "000")
+    }
+    
+    func test_updateSymbolsTable_updatesTableWithAssemblySymbols() {
+        
     }
     
     func test_getBinaryOfcompSymbol_returnsRightBinaryCode() {
         compConvertionTable.forEach { (symbol, binary) in
-            XCTAssertEqual(Code.getBinaryOf(compSymbol: symbol), binary)
+            XCTAssertEqual(sut.getBinaryOf(compSymbol: symbol), binary)
         }
-        XCTAssertNil(Code.getBinaryOf(compSymbol: nil))
-        XCTAssertNil(Code.getBinaryOf(compSymbol: "Gustavo"))
+        XCTAssertNil(sut.getBinaryOf(compSymbol: nil))
+        XCTAssertNil(sut.getBinaryOf(compSymbol: "Gustavo"))
     }
     
     func test_getBinaryOfSymbol_returnsRightBinaryCode() {
         stride(from: 0, to: 32768, by: 5000).forEach {
             let binary = String($0, radix: 2, uppercase: false)
-            let paddedBinary = Code.pad(string: binary, toSize: 16, padChar: "0")
-            XCTAssertEqual(Code.getBinaryOf(symbol: String($0)), paddedBinary)
+            let paddedBinary = sut.pad(string: binary, toSize: 16, padChar: "0")
+            XCTAssertEqual(sut.getBinaryOf(symbol: String($0), commandType: CommandType.lCommand), paddedBinary)
         }
-        XCTAssertNil(Code.getBinaryOf(compSymbol: nil))
-        XCTAssertNil(Code.getBinaryOf(compSymbol: "Gustavo"))
-        XCTAssertNil(Code.getBinaryOf(compSymbol: "32768"))
+        XCTAssertNil(sut.getBinaryOf(compSymbol: nil))
+        XCTAssertNil(sut.getBinaryOf(compSymbol: "Gustavo"))
+        XCTAssertNil(sut.getBinaryOf(compSymbol: "32768"))
     }
         
 }

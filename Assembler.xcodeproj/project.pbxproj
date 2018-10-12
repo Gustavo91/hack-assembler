@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		19251A3721629FE700098BCF /* testBinary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19251A3621629FE700098BCF /* testBinary.txt */; };
-		19251A382162A98200098BCF /* testAssembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 199DC48C21629EDE00C679F2 /* testAssembly.txt */; };
+		19251A3721629FE700098BCF /* add-binary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19251A3621629FE700098BCF /* add-binary.txt */; };
+		19251A382162A98200098BCF /* add-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 199DC48C21629EDE00C679F2 /* add-assembly.txt */; };
+		19310A182171319200D24D01 /* commented-max-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19310A172171319200D24D01 /* commented-max-assembly.txt */; };
 		193DC27E215BFBA200A8E445 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 193DC27D215BFBA200A8E445 /* main.swift */; };
 		1948A2C2215F8277007AEAB2 /* CommandTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1948A2C1215F8277007AEAB2 /* CommandTests.swift */; };
 		19561A9C215C15D600D19CA9 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19561A9B215C15D600D19CA9 /* Parser.swift */; };
@@ -16,11 +17,15 @@
 		197B866B215C5B0B0046BC3B /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19561A9B215C15D600D19CA9 /* Parser.swift */; };
 		197B8674215EDE9C0046BC3B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8673215EDE9C0046BC3B /* Command.swift */; };
 		197B8675215EDF160046BC3B /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 197B8673215EDE9C0046BC3B /* Command.swift */; };
-		19B3D9F9215FA1FF0021665E /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* Code.swift */; };
+		19B3D9F9215FA1FF0021665E /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */; };
 		19B3D9FB215FA21E0021665E /* CodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FA215FA21E0021665E /* CodeTests.swift */; };
-		19B3D9FC215FF2880021665E /* Code.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* Code.swift */; };
+		19B3D9FC215FF2880021665E /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */; };
 		19B3D9FE216005F60021665E /* IOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FD216005F60021665E /* IOManager.swift */; };
 		19B3DA01216006510021665E /* IOManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B3D9FD216005F60021665E /* IOManager.swift */; };
+		19B6757E216D40BA00F72A0A /* max-binary.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19B6757C216D40BA00F72A0A /* max-binary.txt */; };
+		19B6757F216D40BA00F72A0A /* max-assembly.txt in Resources */ = {isa = PBXBuildFile; fileRef = 19B6757D216D40BA00F72A0A /* max-assembly.txt */; };
+		19B67581216E93F500F72A0A /* String+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B67580216E93F500F72A0A /* String+Split.swift */; };
+		19B67582216E93F500F72A0A /* String+Split.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B67580216E93F500F72A0A /* String+Split.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,7 +41,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		19251A3621629FE700098BCF /* testBinary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = testBinary.txt; sourceTree = "<group>"; };
+		19251A3621629FE700098BCF /* add-binary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "add-binary.txt"; sourceTree = "<group>"; };
+		19310A172171319200D24D01 /* commented-max-assembly.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "commented-max-assembly.txt"; sourceTree = "<group>"; };
 		193DC27A215BFBA200A8E445 /* assembler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = assembler; sourceTree = BUILT_PRODUCTS_DIR; };
 		193DC27D215BFBA200A8E445 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1948A2C1215F8277007AEAB2 /* CommandTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandTests.swift; sourceTree = "<group>"; };
@@ -45,10 +51,13 @@
 		19561AA3215C178E00D19CA9 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		19561AA5215C178E00D19CA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		197B8673215EDE9C0046BC3B /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		199DC48C21629EDE00C679F2 /* testAssembly.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = testAssembly.txt; sourceTree = "<group>"; };
-		19B3D9F8215FA1FF0021665E /* Code.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Code.swift; sourceTree = "<group>"; };
+		199DC48C21629EDE00C679F2 /* add-assembly.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = "add-assembly.txt"; sourceTree = "<group>"; };
+		19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		19B3D9FA215FA21E0021665E /* CodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeTests.swift; sourceTree = "<group>"; };
 		19B3D9FD216005F60021665E /* IOManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IOManager.swift; sourceTree = "<group>"; };
+		19B6757C216D40BA00F72A0A /* max-binary.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "max-binary.txt"; sourceTree = "<group>"; };
+		19B6757D216D40BA00F72A0A /* max-assembly.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "max-assembly.txt"; sourceTree = "<group>"; };
+		19B67580216E93F500F72A0A /* String+Split.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Split.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,11 +99,12 @@
 		193DC27C215BFBA200A8E445 /* Assembler */ = {
 			isa = PBXGroup;
 			children = (
-				19B3D9F8215FA1FF0021665E /* Code.swift */,
+				19B3D9F8215FA1FF0021665E /* CodeGenerator.swift */,
 				197B8673215EDE9C0046BC3B /* Command.swift */,
 				19B3D9FD216005F60021665E /* IOManager.swift */,
 				193DC27D215BFBA200A8E445 /* main.swift */,
 				19561A9B215C15D600D19CA9 /* Parser.swift */,
+				19B67580216E93F500F72A0A /* String+Split.swift */,
 			);
 			path = Assembler;
 			sourceTree = "<group>";
@@ -102,8 +112,11 @@
 		19561AA2215C178E00D19CA9 /* AssemblerTests */ = {
 			isa = PBXGroup;
 			children = (
-				19251A3621629FE700098BCF /* testBinary.txt */,
-				199DC48C21629EDE00C679F2 /* testAssembly.txt */,
+				19B6757D216D40BA00F72A0A /* max-assembly.txt */,
+				19B6757C216D40BA00F72A0A /* max-binary.txt */,
+				19310A172171319200D24D01 /* commented-max-assembly.txt */,
+				19251A3621629FE700098BCF /* add-binary.txt */,
+				199DC48C21629EDE00C679F2 /* add-assembly.txt */,
 				19561AA3215C178E00D19CA9 /* ParserTests.swift */,
 				1948A2C1215F8277007AEAB2 /* CommandTests.swift */,
 				19B3D9FA215FA21E0021665E /* CodeTests.swift */,
@@ -190,8 +203,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19251A382162A98200098BCF /* testAssembly.txt in Resources */,
-				19251A3721629FE700098BCF /* testBinary.txt in Resources */,
+				19B6757E216D40BA00F72A0A /* max-binary.txt in Resources */,
+				19B6757F216D40BA00F72A0A /* max-assembly.txt in Resources */,
+				19310A182171319200D24D01 /* commented-max-assembly.txt in Resources */,
+				19251A382162A98200098BCF /* add-assembly.txt in Resources */,
+				19251A3721629FE700098BCF /* add-binary.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,7 +218,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				19B3D9F9215FA1FF0021665E /* Code.swift in Sources */,
+				19B3D9F9215FA1FF0021665E /* CodeGenerator.swift in Sources */,
+				19B67581216E93F500F72A0A /* String+Split.swift in Sources */,
 				19561A9C215C15D600D19CA9 /* Parser.swift in Sources */,
 				193DC27E215BFBA200A8E445 /* main.swift in Sources */,
 				19B3D9FE216005F60021665E /* IOManager.swift in Sources */,
@@ -217,9 +234,10 @@
 				197B866B215C5B0B0046BC3B /* Parser.swift in Sources */,
 				19561AA4215C178E00D19CA9 /* ParserTests.swift in Sources */,
 				197B8675215EDF160046BC3B /* Command.swift in Sources */,
+				19B67582216E93F500F72A0A /* String+Split.swift in Sources */,
 				1948A2C2215F8277007AEAB2 /* CommandTests.swift in Sources */,
 				19B3DA01216006510021665E /* IOManager.swift in Sources */,
-				19B3D9FC215FF2880021665E /* Code.swift in Sources */,
+				19B3D9FC215FF2880021665E /* CodeGenerator.swift in Sources */,
 				19B3D9FB215FA21E0021665E /* CodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
