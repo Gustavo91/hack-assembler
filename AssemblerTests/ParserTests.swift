@@ -10,18 +10,24 @@ import XCTest
 
 class ParserTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
+    func test_translate_whenGivenAssemblyWithoutSymbols_writeRightBinaryCode() {
+        assertBinaryGeneratedIsRight(assemblyTestFile: "add-assembly", binaryTestFile: "add-binary")
     }
     
-    override func tearDown() {
-        super.tearDown()
+    func test_translate_whenGivenAssemblyWithSymbols_writeRightBinaryCode() {
+        assertBinaryGeneratedIsRight(assemblyTestFile: "max-assembly", binaryTestFile: "max-binary")
     }
     
-    func test_translateAssembly_writeRightBinaryCode() {
+    func test_translate_whenGivenAssemblyWithSymbolsAndComments_writeRightBinaryCode() {
+        assertBinaryGeneratedIsRight(assemblyTestFile: "commented-max-assembly", binaryTestFile: "max-binary")
+    }
+    
+    // MARK: Private
+    
+    private func assertBinaryGeneratedIsRight(assemblyTestFile: String, binaryTestFile: String) {
         // When
-        let assemblyPath = getPathOf(fileName: "testAssembly")
-        let binaryPath = getPathOf(fileName: "testBinary")
+        let assemblyPath = getPathOf(fileName: assemblyTestFile)
+        let binaryPath = getPathOf(fileName: binaryTestFile)
         let assembly = getContentOf(filePath: assemblyPath)
         let binary = getContentOf(filePath: binaryPath)
         
@@ -31,8 +37,6 @@ class ParserTests: XCTestCase {
         // Then
         XCTAssertEqual(myBinary, binary, "The binary build is not right")
     }
-    
-    // MARK: Private
     
     private func getPathOf(fileName: String) -> String {
         let bundle = Bundle(for: type(of: self))

@@ -12,6 +12,7 @@ enum CommandType {
     case aCommand
     case lCommand
     case cCommand
+    case none
 }
 
 struct Command {
@@ -20,10 +21,10 @@ struct Command {
     
     var command: String
     var type: CommandType { return getCommandType() }
-    var symbol: String? { return type == .aCommand || type == .lCommand  ? getMatch(pattern: symbolPattern) : nil}
-    var dest: String? { return type == .cCommand ? getMatch(pattern: cCommandPattern, group: 1) : nil }
-    var comp: String? { return type == .cCommand ? getMatch(pattern: cCommandPattern, group: 2) : nil }
-    var jump: String? { return type == .cCommand ? getMatch(pattern: cCommandPattern, group: 3) : nil }
+    var symbol: String? { return type == .aCommand || type == .lCommand ? command.getMatch(pattern: symbolPattern) : nil}
+    var dest: String? { return type == .cCommand ? command.getMatch(pattern: cCommandPattern, group: 1) : nil }
+    var comp: String? { return type == .cCommand ? command.getMatch(pattern: cCommandPattern, group: 2) : nil }
+    var jump: String? { return type == .cCommand ? command.getMatch(pattern: cCommandPattern, group: 3) : nil }
     
     // MARK: - Init
     
@@ -43,42 +44,26 @@ struct Command {
             return .aCommand
         } else if isL() {
             return .lCommand
+        } else if isC() {
+            return .cCommand
         }
         
-        return .cCommand
-    }
-    
-    private func getMatch(pattern: String, group: Int = 0) -> String? {
-        let range = NSMakeRange(0, command.count)
-        guard let regex = try? NSRegularExpression(pattern: pattern),
-            let match = regex.firstMatch(in: command, options: .reportProgress, range: range) else {
-                return nil
-        }
-        
-        let matchRange = group == 0 ? match.range : match.range(at: group)
-        let nsStringcommand = command as NSString
-        
-        if matchRange.length == 0 {
-            return "NULL"
-        }
-        let stringMatched = nsStringcommand.substring(with: matchRange)
-        return stringMatched
+        return .none
     }
     
     private func isA() -> Bool {
         let regex = try? NSRegularExpression(pattern: aCommandPattern)
-        return isMatch(regex: regex, string: command)
+        return command.hasMatch(regex: regex)
     }
     
     private func isL() -> Bool {
         let regex = try? NSRegularExpression(pattern: lCommandPattern)
-        return isMatch(regex: regex, string: command)
+        return command.hasMatch(regex: regex)
     }
     
-    private func isMatch(regex: NSRegularExpression?, string: String) -> Bool {
-        let searchRange = NSMakeRange(0, string.count)
-        let numberOfMatches = regex?.numberOfMatches(in: string, options: .reportProgress, range: searchRange)
-        return numberOfMatches == 1
+    private func isC() -> Bool {
+        let regex = try? NSRegularExpression(pattern: cCommandPattern)
+        return command.hasMatch(regex: regex)
     }
     
 }

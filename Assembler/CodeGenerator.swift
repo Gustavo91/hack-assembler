@@ -8,41 +8,85 @@
 
 import Foundation
 
-class Code {
+class CodeGenerator {
     
-    private static let maxAddressLimit = 32768
+    // MARK: - Properties
     
-    static func getBinaryOf(jumpSymbol: String?) -> String {
+    var romAddress: Int = 0
+    var ramAddress: Int = 1024
+    var symbolsTable: [String: Int] = [
+        "SP"     : 0,
+        "LCL"    : 1,
+        "ARG"    : 2,
+        "THIS"   : 3,
+        "THAT"   : 4,
+        "R0"     : 0,
+        "R1"     : 1,
+        "R2"     : 2,
+        "R3"     : 3,
+        "R4"     : 4,
+        "R5"     : 5,
+        "R6"     : 6,
+        "R7"     : 7,
+        "R8"     : 8,
+        "R9"     : 9,
+        "R10"    : 10,
+        "R11"    : 11,
+        "R12"    : 12,
+        "R13"    : 13,
+        "R14"    : 14,
+        "R15"    : 15,
+        "SCREEN" : 16384,
+        "KBD"    : 24576
+    ]
+    
+    // MARK: - Singleton
+    
+    static let shared = CodeGenerator()
+
+    // MARK: - Binary Translation
+    
+    func getBinaryOf(jumpSymbol: String?) -> String {
         guard let symbol = jumpSymbol , let binary = jumpConvertionTable[symbol]  else {
             return "000"
         }
         return binary
     }
     
-    static func getBinaryOf(destSymbol: String?) -> String {
+    func getBinaryOf(destSymbol: String?) -> String {
         guard let symbol = destSymbol , let binary = destConvertionTable[symbol]  else {
             return "000"
         }
         return binary
     }
     
-    static func getBinaryOf(compSymbol: String?) -> String? {
+    func getBinaryOf(compSymbol: String?) -> String? {
         guard let symbol = compSymbol , let binary = compConvertionTable[symbol]  else {
             return nil
         }
         return binary
     }
     
-    static func getBinaryOf(symbol: String?) -> String? {
-        guard let symbol = symbol, let number = Int(symbol),
-            number < maxAddressLimit else {
-                return nil
+    func getBinaryOf(symbol: String?, commandType: CommandType) -> String? {
+        guard let symbol = symbol else {
+            return nil
         }
-        let binary = String(number, radix: 2, uppercase: false)
+        
+        var binary = ""
+        if let number = Int(symbol), number < maxAddressLimit {
+            binary = String(number, radix: 2, uppercase: false)
+        } else if commandType == .aCommand {
+            binary = String(symbolsTable[symbol]!, radix: 2, uppercase: false)
+        } else if commandType == .lCommand {
+            return binary
+        }
+        
         return pad(string: binary, toSize: 16, padChar: "0")
     }
     
-    static func pad(string: String, toSize: Int, padChar: String) -> String {
+    // MARK: - Helpers
+    
+    func pad(string: String, toSize: Int, padChar: String) -> String {
         var padded = string
         for _ in 0..<(toSize - string.count) {
             padded = padChar + padded
@@ -50,11 +94,16 @@ class Code {
         return padded
     }
     
-    // MARK: Private
+    func reset() {
+        romAddress = 0
+        ramAddress = 1024
+    }
     
-
+    // MARK: - Private
     
-    static private let jumpConvertionTable = [
+    private let maxAddressLimit = 32768
+    
+    private let jumpConvertionTable = [
         "NULL": "000",
         "JGT" : "001",
         "JEQ" : "010",
@@ -65,7 +114,7 @@ class Code {
         "JMP" : "111",
     ]
     
-    static private let destConvertionTable = [
+    private let destConvertionTable = [
         "NULL": "000",
         "A"   : "100",
         "M"   : "001",
@@ -76,7 +125,7 @@ class Code {
         "AMD" : "111",
     ]
     
-    static private let compConvertionTable = [
+    private let compConvertionTable = [
         "0"   : "0101010",
         "1"   : "0111111",
         "-1"  : "0111010",
